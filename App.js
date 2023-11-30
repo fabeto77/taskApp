@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { Button, FlatList, Modal, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useState } from 'react';
 import CustomModal from './components/CustomModal';
-import CustomInput from './components/customInput';
+import CustomInput from './components/CustomInput';
+import CustomFlatList from './components/CustomFlatList';
 
 export default function App() {
 
@@ -52,12 +53,11 @@ export default function App() {
           addItemToListHandlerEvent={addItemToListHandler}
         />
         
-        <FlatList
-          data = {itemList}
-          renderItem={renderListItem}
-          keyExtractor={item => item.id}
-          />
-        <StatusBar style="auto" />
+        <CustomFlatList 
+          itemListProp = {itemList}
+          renderListItemProp = {renderListItem}  
+        />
+
       </View>
       
       <CustomModal 
